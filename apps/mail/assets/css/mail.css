@@ -1,0 +1,8 @@
+
+
+.email-app .email-list li {
+    background-color: lightyellow; 
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+}

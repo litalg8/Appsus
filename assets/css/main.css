@@ -1,4 +1,7 @@
 /** todo: import other css files **/
+
+@import '/apps/mail/assets/css/mail.css';
+
 * {
     box-sizing: border-box;
 }
@@ -92,4 +95,12 @@ button {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+
+
+
+
+.long-txt {
+    cursor: pointer;
 }
