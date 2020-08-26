@@ -27,8 +27,8 @@ var notes = [
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: 'http://some-img/me',
-            title: 'Me playing Mi'
+            url: '../apps/keep/assets/img/really.gif',
+            title: 'Me on React Console Errors...'
         },
         style: {
             backgroundColor: '#ff7fe3'
@@ -40,8 +40,8 @@ var notes = [
         info: {
             label: 'How was it:',
             todos: [
-                { txt: 'Do that', doneAt: null },
-                { txt: 'Do this', doneAt: 187111111 }
+                { id:'todo1',txt: 'Do that', doneAt: null },
+                { id:'todo2',txt: 'Do this', doneAt: 187111111 }
             ]
         }
     }

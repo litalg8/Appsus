@@ -1,6 +1,8 @@
 /** todo: import other css files **/
 
-@import '/apps/mail/assets/css/mail.css';
+@import "../../apps/keep/assets/css/keep.css"; /* Using a string */
+@import "./modal.css"; 
+@import '../../apps/mail/assets/css/mail.css';
 
 * {
     box-sizing: border-box;

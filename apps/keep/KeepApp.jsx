@@ -24,7 +24,6 @@ export class KeepApp extends React.Component {
 
     }
   
-
     render() {
         const notes = this.state.notes
         return (

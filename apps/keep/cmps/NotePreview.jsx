@@ -7,11 +7,11 @@ export function NotePreview({ note }) {
 
     switch (note.type) {
         case 'NoteText':
-            return <NoteText />
+            return <NoteText note={note} />
         case 'NoteImg':
-            return <NoteImg />
+            return <NoteImg note={note}/>
         case 'NoteTodos':
-            return <NoteTodos />
+            return <NoteTodos note={note} />
         default:
             return <h1> oops...something bad happened</h1>
     }
