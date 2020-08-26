@@ -1,11 +1,11 @@
 import { EmailPreview } from './EmailPreview.jsx'
-export function EmailList({ emails, removeEmail }) {
+export function EmailList({ mails, removeMail }) {
     return (
-        <ul className="email-list clean-list">
-            { emails.map(email =>
-                <li key={ email.id }>
-                    <EmailPreview email={ email } />
-                    <button onClick={ () => removeEmail(email.id) }>x</button>
+        <ul className="mail-list clean-list">
+            { mails.map(mail =>
+                <li key={ mail.id }>
+                    <EmailPreview mail={ mail } />
+                    <button onClick={ () => removeMail(mail.id) }>x</button>
                 </li>)
             }
         </ul>

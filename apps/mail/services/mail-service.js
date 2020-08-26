@@ -1,34 +1,40 @@
 export const mailService = {
     query,
-    remove
+    remove,
+    getById
 }
 
 function query() {
-    return Promise.resolve(emails);
+    return Promise.resolve(mails);
 }
 
-function remove(emailId) {
-    emails = emails.filter(email => email.id !== emailId);
+function remove(mailId) {
+    mails = mails.filter(mail => mail.id !== mailId);
+}
+
+function getById(mailId) {
+    const mail = mails.find(mail => mail.id === mailId);
+    return Promise.resolve(mail);
 }
 
 
-var emails = [
+var mails = [
     {
-        id: 'email1',
+        id: 'mail1',
         subject: 'Runway',
         body: 'Catagory is: React alians Eleganza',
         isRead: false,
         sentAt: 1551133930594
     },
     {
-        id: 'email2',
+        id: 'mail2',
         subject: 'Beacuse I\'m what?!',
         body: 'Sickening Bitch!',
         isRead: false,
         sentAt: 1551133930594
     },
     {
-        id: 'email3',
+        id: 'mail3',
         subject: 'She Done Already done had herses',
         body: 'Step yo pussy up!',
         isRead: false,

@@ -1,33 +1,37 @@
-import {mailService} from './services/mail-service.js'
-import {EmailList} from './cmps/EmailList.jsx'
+const { Route } = ReactRouterDOM;
+import { mailService } from './services/mail-service.js'
+import { EmailList } from './cmps/EmailList.jsx'
+import { EmailDetails } from './cmps/EmailDetails.jsx'
 export class MailApp extends React.Component {
 
     state = {
-        emails: []
+        mails: []
     }
 
     componentDidMount() {
-        this.loadEmails();
+        this.loadMails();
     }
 
-    loadEmails() {
+    loadMails() {
         mailService.query()
-        .then(emails => {
-            this.setState({emails})
-        })
+            .then(mails => {
+                this.setState({ mails })
+            })
     }
 
-    removeEmail = (emailId) => {
-        mailService.remove(emailId);
-        this.loadEmails();
+    removeMail = (mailId) => {
+        mailService.remove(mailId);
+        this.loadMails();
     }
 
     render() {
         return (
-            <section className="email-app">
+            <section className="mail-app">
                 <h2>You've Got Mail</h2>
                 <h2>You've Got SheMail</h2>
-                <EmailList emails={this.state.emails} removeEmail={this.removeEmail} />
+                {/* side nav (inbox, trash, sent...) */}
+                <EmailList mails={this.state.mails} removeMail={this.removeMail} />
+                <Route component={EmailDetails} path="/mail/:id" />
             </section>
         )
     }

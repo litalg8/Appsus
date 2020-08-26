@@ -1,11 +1,11 @@
 const { Link } = ReactRouterDOM
 import {LongTxt} from '../../../cmps/LongTxt.jsx'
-export function EmailPreview({ email }) {
+export function EmailPreview({ mail }) {
     return (
-        <Link to={ `/email/${email.id}` }>
-            <article className="email-preview">
-                <span>{email.subject}</span>
-                <LongTxt txt={email.body}/>
+        <Link to={ `/mail/${mail.id}` }>
+            <article className="mail-preview">
+                <span>{mail.subject}</span>
+                <LongTxt txt={mail.body}/>
             </article>
         </Link>
     )
