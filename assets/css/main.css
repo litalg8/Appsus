@@ -1,5 +1,5 @@
 /** todo: import other css files **/
-
+    
 @import "../../apps/keep/assets/css/keep.css"; /* Using a string */
 @import "./modal.css"; 
 @import '../../apps/mail/assets/css/mail.css';
@@ -67,7 +67,9 @@ button {
 }
 
 /****** HELPERS ******/
-
+.grid {
+    display: grid;
+}
 /**** Flex Helpers ****/
 
 .flex {

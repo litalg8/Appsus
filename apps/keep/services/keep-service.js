@@ -20,6 +20,9 @@ var notes = [
         isPinned: false,
         info: {
             txt: 'Fullstack Me Baby!'
+        },
+        style: {
+            backgroundColor: '#3af6a8'
         }
     },
     {
@@ -43,6 +46,9 @@ var notes = [
                 { id:'todo1',txt: 'Do that', doneAt: null },
                 { id:'todo2',txt: 'Do this', doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: '#9a4eff'
         }
     }
 
