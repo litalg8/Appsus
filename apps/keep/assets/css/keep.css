@@ -40,3 +40,15 @@ margin: 0 auto;
     color: #66fcf1; 
 
 }
+.btn-container .pin{
+    color:#66fcf1
+}
+.btn-container .unpin{
+    color:#323333
+}
+.pin{
+    color:#66fcf1
+}
+.unpin{
+    color:#323333
+}

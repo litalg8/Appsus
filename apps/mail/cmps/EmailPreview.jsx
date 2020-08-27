@@ -1,12 +1,16 @@
 const { Link } = ReactRouterDOM
-import {LongTxt} from '../../../cmps/LongTxt.jsx'
-export function EmailPreview({ mail }) {
+import { LongTxt } from '../../../cmps/LongTxt.jsx'
+export function EmailPreview({ mail, removeMail }) {
     return (
-        
-            <article className={'mail-preview'}>
-                <span>{mail.subject}</span>
-                <LongTxt txt={mail.body}/>
-            </article>
+        <React.Fragment>
+            <div className="mail-content flex space-between">
+                <span>{mail.subject} </span>
+                <LongTxt txt={mail.body} />
+            </div>
+            <button className="remove-mail fas fa-trash fa-2x" onClick={() => removeMail(mail.id)}></button>
+
+        </React.Fragment>
+
 
     )
 }

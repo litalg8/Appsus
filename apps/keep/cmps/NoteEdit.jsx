@@ -6,15 +6,18 @@ export class NoteEdit extends React.Component {
         placeholder: 'add your note here',
         type: 'NoteText',
         value: '',
-        isPinned: false
+        isPinned: false,
 
     }
 
+    componentDidMount(){
+        // console.log('mounted');
+    }
     elInput = React.createRef()
     
     onInputChange = (ev) => {
-        console.log('input', ev.target.name)
-        console.log('input', ev.target.value)
+        // console.log('input', ev.target.name)
+        // console.log('input', ev.target.value)
         // const value = ev.target.type === 'text';
         this.setState({
             note: { ...this.state.note, info: { ...this.state.note.info, txt: ev.target.value } },
@@ -31,10 +34,13 @@ export class NoteEdit extends React.Component {
         this.props.loadNotes()
     }
     togglePin = (ev) => {
+        // console.log('pin',ev.target.classList);
+        // console.log(this.state.isPinned)
         ev.preventDefault()
         this.setState({
             isPinned: !this.state.isPinned
-        })
+
+        }, ()=>console.log(this.state.isPinned))
 
     }
     changeNoteType = (ev) => {
@@ -55,16 +61,18 @@ export class NoteEdit extends React.Component {
 
 
     render() {
-        const note = this.state.note
+        const note = this.state.note 
         return (
             <div className="note-edit flex align-center">
                 <input ref={this.elInput} name="text" value={note.info.txt || ''}
                     placeholder={this.state.placeholder} type="text" onChange={this.onInputChange} />
+                    <div className="btn-container">
                 <button className="fas fa-plus" onClick={this.addNote}></button>
                 <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
                 <button className="input-txt-btn fas fa-pencil-alt" name="txt-note" onClick={this.changeNoteType}></button>
                 <button className="list-btn far fa-check-square" name="list-note" onClick={this.changeNoteType}></button>
-                <button className="pin-btn fas fa-thumbtack" name="pin-note" onClick={this.togglePin}></button>
+                <button className={`pin-btn fas fa-thumbtack ${this.state.isPinned ? 'pin' : 'unpin'}`} name="pin-note" onClick={this.togglePin}></button>
+                </div>
             </div>
         )
     }

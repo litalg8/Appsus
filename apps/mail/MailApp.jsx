@@ -36,7 +36,7 @@ export class MailApp extends React.Component {
                 <h2>You've Got SheMail</h2>
                 {/* side nav (inbox, trash, sent...) */}
                 <EmailList mails={this.state.mails} removeMail={this.removeMail} />
-                <button><Link to={`/mail/add`}>Add</Link></button>
+                <button><Link to={`/mail/add`}>Compose</Link></button>
                 <Switch>
                     <Route component={EmailCompose} path="/mail/add" />
                     <Route component={EmailDetails} path="/mail/:id" />

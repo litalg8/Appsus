@@ -12,3 +12,13 @@
     background-color: #1f2833; 
     /* color: white !important; */
 }
+.mail-body-prev{
+font-family:Lato-Regular;
+}
+.mail-content{
+    width:70%; 
+}
+.mail-preview .remove-mail{
+    background-color: transparent;
+
+}

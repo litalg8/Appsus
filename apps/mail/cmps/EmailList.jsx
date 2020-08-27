@@ -6,9 +6,9 @@ export function EmailList({ mails, removeMail }) {
         <ul className="mail-list clean-list">
             {mails.map(mail =>
                 <Link key={mail.id}  to={`/mail/${mail.id}`}>
-                    <li className={mail.isRead ? '' : 'unread-mail'}>
-                        <EmailPreview mail={mail} />
-                        <button onClick={() => removeMail(mail.id)}>x</button>
+                    <li className={'mail-preview flex space-between ' + (mail.isRead ? '' : 'unread-mail')}>
+                        <EmailPreview mail={mail} removeMail={removeMail} />
+                       
                     </li>
                 </Link>)
             }

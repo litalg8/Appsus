@@ -1,5 +1,5 @@
 export const keepService = {
-    query, getById, remove, getEmpty, save,createNote
+    query, getById, remove, getEmpty, save,createNote,togglePin
 }
 
 function query() {
@@ -7,6 +7,9 @@ function query() {
 }
 function remove(noteId) {
     notes = notes.filter(note => note.id !== noteId)
+}
+function togglePin(note){
+    note.isPinned = !note.isPinned
 }
 function getById(noteId) {
     const note = notes.find(note => note.id === noteId)
@@ -79,6 +82,7 @@ var notes = [
     {
         id: 'note3',
         type: 'NoteTodos',
+        isPinned: false,
         info: {
             label: 'How was it:',
             todos: [
