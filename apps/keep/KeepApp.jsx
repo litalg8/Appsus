@@ -30,7 +30,8 @@ export class KeepApp extends React.Component {
             <section>
                 <h2>Keepush</h2>
                 <NoteEdit loadNotes = {this.loadNotes}/>
-                <NoteList notes={notes} removeNote = {this.removeNote} />
+                <NoteList notes={notes.filter(note => note.isPinned)} removeNote = {this.removeNote} />
+                <NoteList notes={notes.filter(note => !note.isPinned)} removeNote = {this.removeNote} />
             </section>
         )
     }

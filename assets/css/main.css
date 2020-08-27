@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: rgb(246, 190, 220);
+    background-color: #0b0c10;
     font-family: Lato-Regular;
     margin:0; 
     padding:0; 
@@ -18,7 +18,7 @@ body {
 a {
     font-family: Lato-Bold;
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
 }
 button {
     font-family: Lato-Bold;
@@ -29,17 +29,20 @@ button {
     border: none;
     background: #ffffff;
 }
+h2{
+    color: #c5c6c7; 
+}
 
 .active-nav{
-    background-color: aquamarine;
+    background-color: #0b0c10;
     
 }
 .active-keep{
-    background-color: rgb(218, 26, 106);
+    background-color: #0b0c10;
     display:none; 
 }
 .active-mail{
-    background-color: rgb(204, 127, 255);
+    background-color: #0b0c10;
     display:none; 
 }
 
@@ -101,7 +104,20 @@ button {
     padding: 0;
 }
 
+/** Logos **/ 
+.keep .fas{
+    color: #66fcf1; 
+    padding:1rem; 
+}
 
+.mail .fas{
+    color: #66fcf1; 
+    padding:1rem; 
+}
+.logo .fas{
+    color: #66fcf1; 
+    padding:1rem; 
+}
 
 
 
