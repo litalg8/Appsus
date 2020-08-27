@@ -57,14 +57,14 @@ export class NoteEdit extends React.Component {
     render() {
         const note = this.state.note
         return (
-            <div className="note-edit">
+            <div className="note-edit flex align-center">
                 <input ref={this.elInput} name="text" value={note.info.txt || ''}
                     placeholder={this.state.placeholder} type="text" onChange={this.onInputChange} />
-                <button onClick={this.addNote}>add note</button>
-                <button className="input-btn" name="img-note" onClick={this.changeNoteType}><i className="far fa-image"></i></button>
-                <button className="input-btn" name="txt-note" onClick={this.changeNoteType}>text note</button>
-                <button className="list-btn" name="list-note" onClick={this.changeNoteType}>list note</button>
-                <button className="pin-btn" name="pin-note" onClick={this.togglePin}>{note.isPinned ? 'unpin' : 'pin'}</button>
+                <button className="fas fa-plus" onClick={this.addNote}></button>
+                <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
+                <button className="input-txt-btn fas fa-pencil-alt" name="txt-note" onClick={this.changeNoteType}></button>
+                <button className="list-btn far fa-check-square" name="list-note" onClick={this.changeNoteType}></button>
+                <button className="pin-btn fas fa-thumbtack" name="pin-note" onClick={this.togglePin}></button>
             </div>
         )
     }
@@ -74,3 +74,4 @@ export class NoteEdit extends React.Component {
 }
 {/* <input type="file" onChange={this.onInputChange}/> */ }
 // ../apps/keep/assets/img/alaska.gif
+// {note.isPinned ? 'unpin' : 'pin'}

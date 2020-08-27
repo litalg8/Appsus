@@ -17,11 +17,11 @@ function save(noteToSave) {
 }
 
 function getEmpty() {
-    return { type: 'NoteText', isPinned: false, info: {}, style: { backgroundColor: '#f8f660' } }
+    return { type: 'NoteText', isPinned: false, info: {}, style: { backgroundColor: '#1f2833' } }
 }
 
 function createNote(type, value, isPinned) {
-    var note = { type, isPinned, info: {}, style: { backgroundColor: '#f8f660' } }
+    var note = { type, isPinned, info: {}, style: { backgroundColor: '#1f2833' } }
     var key;
     switch (type) {
         case 'NoteText':
