@@ -1,5 +1,5 @@
 export const keepService = {
-    query, getById, remove,
+    query, getById, remove, getEmpty, save,createNote
 }
 
 function query() {
@@ -11,6 +11,45 @@ function remove(noteId) {
 function getById(noteId) {
     const note = notes.find(note => note.id === noteId)
     return Promise.resolve(note)
+}
+function save(noteToSave) {
+    noteToSave.id ? _update(noteToSave) : _add(noteToSave);
+}
+
+function getEmpty() {
+    return { type: 'NoteText', isPinned: false, info: {}, style: { backgroundColor: '#fab0d7' } }
+}
+
+function createNote(type, value) {
+    var note = { type, isPinned: false, info: {}, style: { backgroundColor: '#fab0d7' } }
+    var key;
+    switch (type) {
+        case 'NoteText':
+            key = 'txt'
+            break;
+        case 'NoteImg':
+            key = 'url'
+            break;
+        case 'NoteTodos':
+            key = 'label'
+            note.info.todos= []
+            break;
+    }
+    note.info[[key]] = value;
+    console.log(note);
+    return note;
+}
+
+function _add(note) {
+    const noteToAdd = {
+        ...note,
+        id: makeId()
+    }
+    notes = [noteToAdd, ...notes]
+}
+function _update(noteToSave) {
+    notes = notes.map(note => note.id === noteToSave.id ? noteToSave : note)
+    return noteToSave
 }
 
 var notes = [
@@ -43,8 +82,8 @@ var notes = [
         info: {
             label: 'How was it:',
             todos: [
-                { id:'todo1',txt: 'Do that', doneAt: null },
-                { id:'todo2',txt: 'Do this', doneAt: 187111111 }
+                { id: 'todo1', txt: 'Do that', doneAt: null },
+                { id: 'todo2', txt: 'Do this', doneAt: 187111111 }
             ]
         },
         style: {
@@ -53,3 +92,13 @@ var notes = [
     }
 
 ];
+
+
+function makeId(length = 5) {
+    var txt = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < length; i++) {
+        txt += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return txt;
+}

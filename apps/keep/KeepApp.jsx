@@ -1,6 +1,7 @@
 // import { NoteList } from './cmps/NoteList.jsx'
 import { keepService } from './services/keep-service.js'
 import { NoteList } from './cmps/NoteList.jsx';
+import { NoteEdit } from './cmps/NoteEdit.jsx';
 export class KeepApp extends React.Component {
     state = {
         notes: []
@@ -21,7 +22,6 @@ export class KeepApp extends React.Component {
     removeNote =(noteId) =>{
         keepService.remove(noteId)
         this.loadNotes()
-
     }
   
     render() {
@@ -29,6 +29,7 @@ export class KeepApp extends React.Component {
         return (
             <section>
                 <h2>Keepush</h2>
+                <NoteEdit loadNotes = {this.loadNotes}/>
                 <NoteList notes={notes} removeNote = {this.removeNote} />
             </section>
         )
