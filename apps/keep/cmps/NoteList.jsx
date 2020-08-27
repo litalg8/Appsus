@@ -5,7 +5,7 @@ export function NoteList({ Modal, notes, removeNote }) {
         <ul className="note-list clean-list grid">
             {
             notes.map(note =>
-                <li style={note.style} key={note.id}>
+                <li className="note-card"style={note.style} key={note.id}>
                     <NotePreview note={note} />
                     <button onClick={() => removeNote(note.id)}>x</button>
                 </li>)

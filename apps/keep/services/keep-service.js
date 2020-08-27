@@ -61,7 +61,7 @@ var notes = [
             txt: 'Fullstack Me Baby!'
         },
         style: {
-            backgroundColor: '#3af6a8'
+            backgroundColor: '#1f2833'
         }
     },
     {
@@ -73,7 +73,7 @@ var notes = [
             title: 'Me on React Console Errors...'
         },
         style: {
-            backgroundColor: '#ff7fe3'
+            backgroundColor: '#1f2833'
         }
     },
     {
@@ -87,7 +87,7 @@ var notes = [
             ]
         },
         style: {
-            backgroundColor: '#9a4eff'
+            backgroundColor: '#1f2833'
         }
     }
 

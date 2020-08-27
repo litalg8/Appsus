@@ -14,7 +14,7 @@ export class NoteTodos extends React.Component {
                     <h3>{note.info.label}</h3>
                     <ul className="todo-list clean-list">
                         {       note.info.todos.map(todo =>
-                                <li key={todo.id}>
+                                <li className="todo-item"key={todo.id}>
                                     <h4>{todo.txt}</h4>
                                     <button onClick={() => removeTodo(todo.id)}>x</button>
                                 </li>)
