@@ -6,3 +6,8 @@
     margin: 5px;
     display: flex;
 }
+
+.mail-app .mail-list li.unread-mail {
+    background-color: blue;
+    /* color: white !important; */
+}

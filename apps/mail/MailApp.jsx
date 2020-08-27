@@ -1,7 +1,8 @@
-const { Route } = ReactRouterDOM;
+const { Route, Link, Switch } = ReactRouterDOM;
 import { mailService } from './services/mail-service.js'
 import { EmailList } from './cmps/EmailList.jsx'
 import { EmailDetails } from './cmps/EmailDetails.jsx'
+import { EmailCompose } from './cmps/EmailCompose.jsx';
 export class MailApp extends React.Component {
 
     state = {
@@ -11,7 +12,11 @@ export class MailApp extends React.Component {
     componentDidMount() {
         this.loadMails();
     }
-
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.location.pathname !== this.props.location.pathname) {
+            this.loadMails();
+         }
+    }
     loadMails() {
         mailService.query()
             .then(mails => {
@@ -31,7 +36,11 @@ export class MailApp extends React.Component {
                 <h2>You've Got SheMail</h2>
                 {/* side nav (inbox, trash, sent...) */}
                 <EmailList mails={this.state.mails} removeMail={this.removeMail} />
-                <Route component={EmailDetails} path="/mail/:id" />
+                <button><Link to={`/mail/add`}>Add</Link></button>
+                <Switch>
+                    <Route component={EmailCompose} path="/mail/add" />
+                    <Route component={EmailDetails} path="/mail/:id" />
+                </Switch>
             </section>
         )
     }

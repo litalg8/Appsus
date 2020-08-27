@@ -7,13 +7,15 @@ export class EmailDetails extends React.Component {
     }
 
     componentDidMount() {
-       this.loadMail();
+        // console.log('EmailDetails mounted');
+        this.loadMail();
     }
 
     loadMail() {
         const mailId = this.props.match.params.id
         mailService.getById(mailId)
             .then(mail => this.setState({ mail }))
+            .then(()=>mailService.markAsReadMail(this.state.mail))
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -27,7 +29,7 @@ export class EmailDetails extends React.Component {
         const { mail } = this.state
         if (!mail) return <div>Loading....</div>
         return (
-            <Modal>
+            <Modal returnTo='/mail'>
                 <div className='mail-details'>
                     <h3>{mail.subject}</h3>
                     <p>{mail.body}</p>

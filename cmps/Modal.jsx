@@ -1,13 +1,27 @@
+const { withRouter } = ReactRouterDOM
 
-export class Modal extends React.Component {
+
+class _Modal extends React.Component {
     state = {
-        isShown: true
+        isShown: true,
+        returnTo: null
     }
     closeModal = () => {
         this.setState({ isShown: false })
+        this.props.history.push(this.state.returnTo)
+    }
+    componentDidMount() {
+        const returnTo = this.props.returnTo;
+        // console.log(returnTo);
+        this.setState({returnTo})
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.setState({ isShown: true })
+        }
     }
     render() {
-        console.log('rendering modal');
         const { isShown } = this.state
         const { children } = this.props
         return (
@@ -20,3 +34,5 @@ export class Modal extends React.Component {
         )
     }
 }
+
+export const Modal = withRouter(_Modal);
