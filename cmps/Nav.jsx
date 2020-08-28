@@ -6,7 +6,7 @@ function _Nav(props) {
     return (
         <nav className="main-nav clean-list flex align-center">
             {/* <NavLink to="/" activeClassName="active-nav" className="nav-item" exact >Home</NavLink> */}
-            <NavLink to="/keep" activeClassName="active-keep" className="nav-item keep">
+            <NavLink to="/note" activeClassName="active-keep" className="nav-item keep">
             <i className="fas fa-sticky-note fa-2x"></i>
                 </NavLink>
             <NavLink to="/mail" activeClassName="active-mail" className="nav-item mail">

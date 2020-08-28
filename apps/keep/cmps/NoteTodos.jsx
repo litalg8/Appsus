@@ -6,7 +6,7 @@ export class NoteTodos extends React.Component {
     
     render() {
         const note = this.props.note;
-        console.log(note)
+        // console.log(note)
         return (
             <section className="todo-card">
                 <div className="note-preview">

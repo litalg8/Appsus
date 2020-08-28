@@ -15,7 +15,7 @@ export class App extends React.Component {
                     <main>
                         <Switch>
                             <Route component={MailApp} path="/mail" />
-                            <Route component={KeepApp} path="/keep" />
+                            <Route component={KeepApp} path="/note" />
                             <Route component={Home} path="/" />
                         </Switch>
                     </main>

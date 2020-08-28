@@ -1,85 +1,71 @@
 import { keepService } from '../services/keep-service.js'
+import { Modal } from '../../../cmps/Modal.jsx'
+import { ListTodos } from './ListTodos.jsx'
 
 export class NoteEdit extends React.Component {
+
     state = {
-        note: keepService.getEmpty(),
-        placeholder: 'add your note here',
-        type: 'NoteText',
-        value: '',
-        isPinned: false,
+        note: null,
+    }
+    componentDidMount() {
+        this.loadNote()
+    }
+    onEditNote = (ev) => {
+        ev.preventDefault();
+        keepService.edit(this.state.note);
+        this.props.history.push('/note');
 
     }
-
-    componentDidMount(){
-        // console.log('mounted');
-    }
-    elInput = React.createRef()
-    
     onInputChange = (ev) => {
-        // console.log('input', ev.target.name)
-        // console.log('input', ev.target.value)
-        // const value = ev.target.type === 'text';
+        const key = this.getKeyByType(this.state.note.type);
         this.setState({
-            note: { ...this.state.note, info: { ...this.state.note.info, txt: ev.target.value } },
-            value: ev.target.value
-        })
-        // this.setState({ note: { ...this.state.note, info: { ...this.state.note.info, txt: value } } })
-    }
-    addNote = (ev) => {
-        ev.preventDefault()
-        // console.log('adding note')
-        // console.log(keepService.query())
-        var note = keepService.createNote(this.state.type, this.state.value, this.state.isPinned)
-        keepService.save(note)
-        this.props.loadNotes()
-    }
-    togglePin = (ev) => {
-        // console.log('pin',ev.target.classList);
-        // console.log(this.state.isPinned)
-        ev.preventDefault()
-        this.setState({
-            isPinned: !this.state.isPinned
-
-        }, ()=>console.log(this.state.isPinned))
+            note: { ...this.state.note, info: { ...this.state.note.info, [key]: ev.target.value }, }
+        }, this.saveNote)
 
     }
-    changeNoteType = (ev) => {
-        console.log(ev.target.name)
-        switch (ev.target.name) {
-            case 'img-note':
-                this.setState({ placeholder: 'insert your img url', type: 'NoteImg' })
-                break;
-            case 'txt-note':
-                this.setState({ placeholder: 'insert your Text', type: 'NoteText' })
-                break;
-            case 'list-note':
-                this.setState({ placeholder: 'insert your items with a comma', type: 'NoteTodos' })
-                break;
+    saveNote = () => {
+        keepService.save(this.state.note)
+        // this.loadNote()
+    }
+    loadNote = () => {
+        const noteId = this.props.match.params.id
+        keepService.getById(noteId)
+            .then(note => { this.setState({ note }) })
+            .catch(err => console.log(err))
+    }
+    getKeyByType(type) {
+        switch (type) {
+            case 'NoteText':
+                return 'txt'
+            case 'NoteImg':
+                return 'url'
+            case 'NoteTodos':
+                return 'label'
         }
-
     }
-
-
     render() {
-        const note = this.state.note 
+        const note = this.state.note;
+        if (!note) return <div></div>
+        var key = this.getKeyByType(note.type);
         return (
-            <div className="note-edit flex align-center">
-                <input ref={this.elInput} name="text" value={note.info.txt || ''}
-                    placeholder={this.state.placeholder} type="text" onChange={this.onInputChange} />
+
+            <Modal returnTo='/note'>
+                <div className="note-edit flex align-center">
+                    <input ref={this.elInput} name="text" value={note.info[[key]] || ''}
+                        placeholder={this.state.placeholder} className="edit-input" type="text" onChange={this.onInputChange} />
                     <div className="btn-container">
-                <button className="fas fa-plus" onClick={this.addNote}></button>
-                <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
-                <button className="input-txt-btn fas fa-pencil-alt" name="txt-note" onClick={this.changeNoteType}></button>
-                <button className="list-btn far fa-check-square" name="list-note" onClick={this.changeNoteType}></button>
-                <button className={`pin-btn fas fa-thumbtack ${this.state.isPinned ? 'pin' : 'unpin'}`} name="pin-note" onClick={this.togglePin}></button>
+                        <button className="fas fa-plus" onClick={this.addNote}></button>
+                        <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
+                        <button className="input-txt-btn fas fa-pencil-alt" name="txt-note" onClick={this.changeNoteType}></button>
+                        <button className="list-btn far fa-check-square" name="list-note" onClick={this.changeNoteType}></button>
+                        <button className={`pin-btn fas fa-thumbtack ${this.state.isPinned ? 'pin' : 'unpin'}`} name="pin-note" onClick={this.togglePin}></button>
+                        {note.type === 'NoteTodos' && <ListTodos todos={note.info.todos} />}
+                        <button className="save-btn" onClick={this.saveNote}>save</button>
+                        
+                        
+                    </div>
                 </div>
-            </div>
+            </Modal>
         )
     }
-
-
-
 }
-{/* <input type="file" onChange={this.onInputChange}/> */ }
-// ../apps/keep/assets/img/alaska.gif
-// {note.isPinned ? 'unpin' : 'pin'}

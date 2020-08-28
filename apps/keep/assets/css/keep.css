@@ -1,54 +1,83 @@
-
 /** Todos **/
-.todo-list{
-background-color: #2c3a47;
+
+.todo-list {
+    background-color: #2c3a47;
 }
-.todo-item{
-    
-    margin:1rem; 
+
+.todo-item {
+    margin: 1rem;
 }
 
 /** Text **/
-.note-list{
 
-    margin-top:20px; 
+.note-list {
+    margin-top: 20px;
     display: grid;
     grid-gap: 15px;
-    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(250px, 1fr);
     grid-auto-flow: dense;
 }
-.note-list .note-card{
-border-radius: 0.5rem !important; 
+
+.note-list .note-card {
+    border-radius: 0.5rem !important;
 }
 
-.img-card img{
-    width:100%; 
+.img-card img {
+    width: 100%;
 }
 
-
-.note-edit{
-margin: 0 auto; 
+.note-edit {
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px;
 }
 
-/** icons **/ 
+/** icons **/
 
-.note-edit .far{
-    color: #66fcf1; 
- 
+.note-edit .far {
+    color: #66fcf1;
+    font-size: 1.6rem;
 }
-.note-edit .fas{
-    color: #66fcf1; 
 
+.note-edit .fas {
+    color: #66fcf1;
+    font-size: 1.6rem;
 }
-.btn-container .pin{
-    color:#66fcf1
+
+.btn-container .pin {
+    color: #66fcf1
 }
-.btn-container .unpin{
-    color:#323333
+
+.btn-container .unpin {
+    color: #23504d;
 }
-.pin{
-    color:#66fcf1
+
+.pin {
+    color: #66fcf1
 }
-.unpin{
-    color:#323333
+
+.unpin {
+    color: #191b1b; 
+}
+
+.edit-input {
+    font-family: Lato-Regular ;
+    font-size: 1.5em;
+    color:#58cec8; 
+    width: 250px;
+    background-color: #2c3a47;
+    outline-color: #66fcf1;
+    border: 1px solid #2c3a47;
+    padding:10px; 
+}
+
+.pinned-list {
+    margin-bottom: 60px;
+}
+
+.clean-note-list {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
 }

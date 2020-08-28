@@ -33,8 +33,3 @@ font-family:Lato-Regular;
     padding:3rem; 
 }
 
-input[type="text"], textarea {
-    background-color: #2c3a47;
-    outline-color: #66fcf1;
-    border: 1px solid #2c3a47; 
-}
