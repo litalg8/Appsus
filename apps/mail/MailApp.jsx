@@ -6,7 +6,8 @@ import { EmailCompose } from './cmps/EmailCompose.jsx';
 export class MailApp extends React.Component {
 
     state = {
-        mails: []
+        mails: [],
+        filterBy: ''
     }
 
     componentDidMount() {
@@ -17,6 +18,7 @@ export class MailApp extends React.Component {
             this.loadMails();
         }
     }
+
     loadMails() {
         return mailService.query()
             .then(mails => {
@@ -37,6 +39,22 @@ export class MailApp extends React.Component {
             .then(() => this.loadMails())
     }
 
+    filterBy = (ev) => {
+        const filter = ev.target.name;
+        console.log(filter);
+        this.loadMails().then(()=>{
+
+            switch (filter) {
+                case 'inbox':
+                    this.setState({mails: this.state.mails});
+                    break;
+                case 'star':
+                    this.setState({mails: this.state.mails.filter(mail => mail.isStarred)});
+                    break;
+            }
+        })
+    }
+
     render() {
         return (
             <section className="mail-app">
@@ -44,8 +62,8 @@ export class MailApp extends React.Component {
                 <h2>You've Got SheMail</h2>
                 <div className="mail-content-container">
                     <div className="side-nav">
-                        {/* <button onClick={this.onFilter}></button> */}
-                        {/* side nav (inbox, trash, sent...) */}
+                        <button onClick={this.filterBy} name="inbox">Inbox</button>
+                        <button onClick={this.filterBy} name="star">Starred messages</button>
                     </div>
                     <div>
                         <EmailList mails={this.state.mails} removeMail={this.removeMail} toggleStarMail={this.toggleStarMail}/>
