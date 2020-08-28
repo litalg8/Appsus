@@ -14,7 +14,7 @@ export class LongTxt extends React.Component {
         const isLong = this.state.isLongTxtShown;
         const className = txt.length > this.state.numCharToShow ? 'long-txt' : '';
         return (
-            <p className={'mail-body-prev ' + className} onClick={this.onClick}>
+            <p className={`${className} ${this.props.className?this.props.className:''}`} onClick={this.onClick}>
                 {(isLong || txt.length <= this.state.numCharToShow) ? txt : txt.substr(0, this.state.numCharToShow) + '...'}
             </p>
         )

@@ -4,7 +4,8 @@ export const mailService = {
     getById,
     getEmpty,
     add,
-    markAsReadMail
+    markAsReadMail,
+    toggleStarMail
 }
 
 function query() {
@@ -19,7 +20,8 @@ function getEmpty() {
         subject: '',
         body: '',
         isRead: false,
-        sentAt: Date.now()
+        sentAt: Date.now(),
+        isStarred: false
     }
 }
 
@@ -27,7 +29,13 @@ function remove(mailId) {
     mails = mails.filter(mail => mail.id !== mailId);
 }
 
+function toggleStarMail(mail) {
+    mail.isStarred = !mail.isStarred;
+    return Promise.resolve();
+}
+
 function markAsReadMail(mail) {
+    if(!mail) return;
     mail.isRead = true;
 }
 
@@ -50,7 +58,8 @@ var mails = [
         subject: 'Runway',
         body: 'Catagory is: React alians Eleganza',
         isRead: false,
-        sentAt: 1551133930594
+        sentAt: 1551133930594,
+        isStarred: false
     },
     {
         id: 'mail2',
@@ -59,7 +68,8 @@ var mails = [
         subject: 'Beacuse I\'m what?!',
         body: 'Sickening!',
         isRead: false,
-        sentAt: 1551133930594
+        sentAt: 1551133930594,
+        isStarred: false
     },
     {
         id: 'mail3',
@@ -68,7 +78,8 @@ var mails = [
         subject: 'She Done Already done her herses',
         body: 'Step yo pussy up!',
         isRead: false,
-        sentAt: 1551133930594
+        sentAt: 1551133930594,
+        isStarred: false
     }
 
 ];
