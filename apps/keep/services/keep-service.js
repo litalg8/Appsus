@@ -13,7 +13,7 @@ function togglePin(note){
 }
 function getById(noteId) {
     const note = notes.find(note => note.id === noteId)
-    return Promise.resolve(note)
+    return Promise.resolve({...note})
 }
 function save(noteToSave) {
     noteToSave.id ? _update(noteToSave) : _add(noteToSave);

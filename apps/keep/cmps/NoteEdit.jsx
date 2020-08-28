@@ -10,21 +10,17 @@ export class NoteEdit extends React.Component {
     componentDidMount() {
         this.loadNote()
     }
-    onEditNote = (ev) => {
-        ev.preventDefault();
-        keepService.edit(this.state.note);
-        this.props.history.push('/note');
-
-    }
+    
     onInputChange = (ev) => {
         const key = this.getKeyByType(this.state.note.type);
         this.setState({
             note: { ...this.state.note, info: { ...this.state.note.info, [key]: ev.target.value }, }
-        }, this.saveNote)
+        })
 
     }
     saveNote = () => {
         keepService.save(this.state.note)
+        this.props.history.push('/note');
         // this.loadNote()
     }
     loadNote = () => {
@@ -47,11 +43,12 @@ export class NoteEdit extends React.Component {
         const note = this.state.note;
         if (!note) return <div></div>
         var key = this.getKeyByType(note.type);
+        console.log(this.state);
         return (
 
             <Modal returnTo='/note'>
                 <div className="note-edit flex align-center">
-                    <input ref={this.elInput} name="text" value={note.info[[key]] || ''}
+                    <input ref={this.elInput} name="text" value={note.info[key] || ''}
                         placeholder={this.state.placeholder} className="edit-input" type="text" onChange={this.onInputChange} />
                     <div className="btn-container">
                         <button className="fas fa-plus" onClick={this.addNote}></button>

@@ -2,8 +2,8 @@ export class Home extends React.Component {
 
     render() {
         return (
-            <section>
-                <h2>Home Sweet Home</h2>
+            <section className="home-page">
+                <h2>Welcome Home Ladies!</h2>
             </section>
         )
     }
