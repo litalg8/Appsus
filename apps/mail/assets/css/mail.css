@@ -22,3 +22,19 @@ font-family:Lato-Regular;
     background-color: transparent;
 
 }
+.mail-details {
+    color: #c5c6c7; 
+    flex-direction: column;
+}
+.mail-input{
+    padding: 0.5rem 0.5rem; 
+}
+.compose-input{
+    padding:3rem; 
+}
+
+input[type="text"], textarea {
+    background-color: #2c3a47;
+    outline-color: #66fcf1;
+    border: 1px solid #2c3a47; 
+}
