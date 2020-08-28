@@ -73,7 +73,7 @@ var notes = [
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: './apps/keep/assets/img/really.gif',
+            url: 'apps/keep/assets/img/really.gif',
             title: 'Me on React Console Errors...'
         },
         style: {
