@@ -1,16 +1,16 @@
 const { Link } = ReactRouterDOM
 
 import { EmailPreview } from './EmailPreview.jsx'
-export function EmailList({ mails, removeMail }) {
+export function EmailList({ mails, removeMail, toggleStarMail }) {
     return (
         <ul className="mail-list clean-list">
             {mails.map(mail =>
-                <Link key={mail.id}  to={`/mail/${mail.id}`}>
-                    <li className={'mail-preview flex space-between ' + (mail.isRead ? '' : 'unread-mail')}>
-                        <EmailPreview mail={mail} removeMail={removeMail} />
+                
+                    <li key={mail.id} className={ (mail.isRead ? '' : 'unread-mail')}>
+                        <EmailPreview mail={mail} removeMail={removeMail} toggleStarMail={toggleStarMail} />
                        
                     </li>
-                </Link>)
+                )
             }
         </ul >
     )

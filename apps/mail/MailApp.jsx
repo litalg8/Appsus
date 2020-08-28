@@ -6,7 +6,8 @@ import { EmailCompose } from './cmps/EmailCompose.jsx';
 export class MailApp extends React.Component {
 
     state = {
-        mails: []
+        mails: [],
+        filterBy: ''
     }
 
     componentDidMount() {
@@ -15,10 +16,11 @@ export class MailApp extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.location.pathname !== this.props.location.pathname) {
             this.loadMails();
-         }
+        }
     }
+
     loadMails() {
-        mailService.query()
+        return mailService.query()
             .then(mails => {
                 this.setState({ mails })
             })
@@ -26,7 +28,31 @@ export class MailApp extends React.Component {
 
     removeMail = (mailId) => {
         mailService.remove(mailId);
-        this.loadMails();
+        this.loadMails().then(() => {
+            this.props.history.push('/mail');
+        });
+    }
+
+    toggleStarMail = (mailId) => {
+        mailService.getById(mailId)
+            .then(mail => mailService.toggleStarMail(mail))
+            .then(() => this.loadMails())
+    }
+
+    filterBy = (ev) => {
+        const filter = ev.target.name;
+        console.log(filter);
+        this.loadMails().then(()=>{
+
+            switch (filter) {
+                case 'inbox':
+                    this.setState({mails: this.state.mails});
+                    break;
+                case 'star':
+                    this.setState({mails: this.state.mails.filter(mail => mail.isStarred)});
+                    break;
+            }
+        })
     }
 
     render() {
@@ -34,13 +60,20 @@ export class MailApp extends React.Component {
             <section className="mail-app">
                 <h2>You've Got Mail</h2>
                 <h2>You've Got SheMail</h2>
-                {/* side nav (inbox, trash, sent...) */}
-                <EmailList mails={this.state.mails} removeMail={this.removeMail} />
-                <button><Link to={`/mail/add`}>Compose</Link></button>
-                <Switch>
-                    <Route component={EmailCompose} path="/mail/add" />
-                    <Route component={EmailDetails} path="/mail/:id" />
-                </Switch>
+                <div className="mail-content-container">
+                    <div className="side-nav">
+                        <button onClick={this.filterBy} name="inbox">Inbox</button>
+                        <button onClick={this.filterBy} name="star">Starred messages</button>
+                    </div>
+                    <div>
+                        <EmailList mails={this.state.mails} removeMail={this.removeMail} toggleStarMail={this.toggleStarMail}/>
+                        <button><Link to={`/mail/add`}>Compose</Link></button>
+                        <Switch>
+                            <Route component={EmailCompose} path="/mail/add" />
+                            <Route component={EmailDetails} path="/mail/:id" />
+                        </Switch>
+                    </div>
+                </div>
             </section>
         )
     }
