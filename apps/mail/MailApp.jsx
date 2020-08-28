@@ -18,7 +18,7 @@ export class MailApp extends React.Component {
          }
     }
     loadMails() {
-        mailService.query()
+       return mailService.query()
             .then(mails => {
                 this.setState({ mails })
             })
@@ -26,7 +26,10 @@ export class MailApp extends React.Component {
 
     removeMail = (mailId) => {
         mailService.remove(mailId);
-        this.loadMails();
+        this.loadMails().then(()=> {
+            this.props.history.push('/mail');
+        });
+        
     }
 
     render() {

@@ -65,7 +65,7 @@ var mails = [
         id: 'mail3',
         from: 'alaska@gmail.com',
         to: 'alaska@gmail.com',
-        subject: 'She Done Already done had herses',
+        subject: 'She Done Already done her herses',
         body: 'Step yo pussy up!',
         isRead: false,
         sentAt: 1551133930594

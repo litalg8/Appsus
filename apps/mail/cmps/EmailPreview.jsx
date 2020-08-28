@@ -7,7 +7,7 @@ export function EmailPreview({ mail, removeMail }) {
                 <span>{mail.subject} </span>
                 <LongTxt txt={mail.body} />
             </div>
-            <button className="remove-mail fas fa-trash fa-2x" onClick={() => removeMail(mail.id)}></button>
+            <button className="remove-mail fas fa-trash " onClick={() => removeMail(mail.id)}></button>
 
         </React.Fragment>
 

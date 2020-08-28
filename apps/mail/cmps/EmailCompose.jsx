@@ -25,15 +25,18 @@ export class EmailCompose extends React.Component {
     }
 
     render() {
-        
+
         return (
-            <Modal  returnTo='/mail'>
+            <Modal returnTo='/mail'>
                 <form className='mail-details flex'>
                     <h3>Send Mail</h3>
                     <p>Here will come an input</p>
-                    <label htmlFor="to" >To:</label> <input value={this.state.mail.to} onChange={ this.onInputChange } id="to"className="mail-input" name="to" placeholder="To..." type="text"/>
-                   <label htmlFor="subject" >Subject: </label><input value={this.state.mail.subject} onChange={ this.onInputChange } id="subject" className="mail-input" name="subject" placeholder="Subject" type="text"/>
-                   <label htmlFor="mail-body" >Message:</label> <textarea value={this.state.mail.body} onChange={ this.onInputChange } id="mail-body" className="compose-input" name="body" placeholder="Type here your message..."/>
+                    <label htmlFor="to" >To:</label>
+                    <input value={this.state.mail.to} onChange={this.onInputChange} id="to" className="mail-input" name="to" placeholder="To..." type="text" />
+                    <label htmlFor="subject" >Subject: </label>
+                    <input value={this.state.mail.subject} onChange={this.onInputChange} id="subject" className="mail-input" name="subject" placeholder="Subject" type="text" />
+                    <label htmlFor="mail-body" >Message:</label>
+                    <textarea value={this.state.mail.body} onChange={this.onInputChange} id="mail-body" className="compose-input" name="body" placeholder="Type here your message..." type="textarea" />
 
                     <button onClick={this.onAddMail}>Send</button>
                 </form>
