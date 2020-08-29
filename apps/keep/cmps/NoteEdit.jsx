@@ -1,5 +1,5 @@
+import { ModalNote } from './ModalNote.jsx'
 import { keepService } from '../services/keep-service.js'
-import { Modal } from '../../../cmps/Modal.jsx'
 import { ListTodos } from './ListTodos.jsx'
 
 export class NoteEdit extends React.Component {
@@ -46,7 +46,7 @@ export class NoteEdit extends React.Component {
         console.log(this.state);
         return (
 
-            <Modal returnTo='/note'>
+            <ModalNote returnTo='/note'>
                 <div className="note-edit flex align-center">
                     <input ref={this.elInput} name="text" value={note.info[key] || ''}
                         placeholder={this.state.placeholder} className="edit-input" type="text" onChange={this.onInputChange} />
@@ -62,7 +62,7 @@ export class NoteEdit extends React.Component {
                         
                     </div>
                 </div>
-            </Modal>
+            </ModalNote>
         )
     }
 }

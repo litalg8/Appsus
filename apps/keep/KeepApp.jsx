@@ -27,9 +27,8 @@ export class KeepApp extends React.Component {
         this.loadNotes()
     }
     togglePin = (noteId) => {
-        keepService.getById(noteId)
+        keepService.togglePin(noteId)
             .then(note => {
-                keepService.togglePin(note)
                 this.loadNotes()
                 console.log(noteId);
                 console.log(note);

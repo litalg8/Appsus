@@ -9,8 +9,11 @@ function query() {
 function remove(noteId) {
     notes = notes.filter(note => note.id !== noteId)
 }
-function togglePin(note){
+function togglePin(noteId){
+    const note = _getById(noteId)
     note.isPinned = !note.isPinned
+    return Promise.resolve()
+
 }
 function getById(noteId) {
     const note = notes.find(note => note.id === noteId)
@@ -18,6 +21,9 @@ function getById(noteId) {
 }
 function save(noteToSave) {
     noteToSave.id ? _update(noteToSave) : _add(noteToSave);
+}
+function _getById(noteId){
+    return notes.find(note => note.id === noteId)
 }
 
 function getEmpty() {

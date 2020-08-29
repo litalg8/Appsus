@@ -138,6 +138,6 @@ h2{
 .home-page{
     background-image:url('../img/bgc.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    height:100vh; 
+    background-size: cover; 
+    height:90vh; 
 }
