@@ -73,25 +73,47 @@ input[type="text"], textarea, .compose-input {
 .side-nav {
     flex-direction: column;
     align-content: space-between;
-   
     width: 100px;
     height: 100px;
 }
-.filter-btn{
-  color: #c5c6c7; 
-  line-height: 1.7rem;
-  border: 2px solid #45a29e; 
+
+.filter-btn {
+    color: #c5c6c7;
+    line-height: 1.7rem;
+    border-color: #45a29e;
+    border-style: solid;
+    border-width: 0px 0px 2px 0px;
 }
 
-.side-nav .filter-btn:hover{
-    border: 2px solid #66fcf1; 
+
+.side-nav .filter-btn:hover {
+    border-color: #66fcf1;
 }
 
 .mail-content-container {
     display: grid;
     grid-template-columns: auto 1fr;
 }
-.compose-btn{
+
+.compose-btn {
     line-height: 2rem;
-    background-color:  #45a29e;
+    background-color: #45a29e;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 640px) {
+    .mail-preview {
+        
+        grid-template-columns: 1fr;
+        /* justify-content: space-between; */
+    }
+
+    .mail-app .mail-list li {
+        margin: 4px;
+        /* display: flex; */
+    }
+    
+    .mail-app .mail-list li:first-child {
+        margin-top: 0;
+    }
 }

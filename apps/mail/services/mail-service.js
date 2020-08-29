@@ -5,7 +5,9 @@ export const mailService = {
     getEmpty,
     add,
     markAsReadMail,
-    toggleStarMail
+    toggleStarMail,
+    toggleReadMail,
+    getUnreadCount
 }
 
 function query() {
@@ -34,8 +36,21 @@ function toggleStarMail(mail) {
     return Promise.resolve();
 }
 
+function getUnreadCount() {
+    return mails.reduce((acc, mail) => {
+        if(!mail.isRead) acc++;
+        return acc;
+    }, 0);
+    
+}
+
+function toggleReadMail(mail) {
+    mail.isRead = !mail.isRead;
+    return Promise.resolve();
+}
+
 function markAsReadMail(mail) {
-    if(!mail) return;
+    if (!mail) return;
     mail.isRead = true;
 }
 
@@ -53,17 +68,17 @@ function getById(mailId) {
 var mails = [
     {
         id: 'mail1',
-        from: 'alaska@gmail.com',
+        from: 'alaska',
         to: 'alaska@gmail.com',
         subject: 'Runway',
         body: 'Catagory is: React alians Eleganza',
         isRead: false,
         sentAt: 1551133930594,
-        isStarred: false
+        isStarred: true
     },
     {
         id: 'mail2',
-        from: 'alaska@gmail.com',
+        from: 'alaska',
         to: 'alaska@gmail.com',
         subject: 'Beacuse I\'m what?!',
         body: 'Sickening!',
@@ -73,13 +88,23 @@ var mails = [
     },
     {
         id: 'mail3',
-        from: 'alaska@gmail.com',
+        from: 'alaska',
         to: 'alaska@gmail.com',
         subject: 'She Done Already done her herses',
         body: 'Step yo pussy up!',
-        isRead: false,
+        isRead: true,
         sentAt: 1551133930594,
         isStarred: false
+    },
+    {
+        id: 'mail4',
+        from: 'detox',
+        to: 'alaska@gmail.com',
+        subject: 'Meeting with Roxxxy',
+        body: 'Hiiiiiiiii \nwe want to eat together!',
+        isRead: true,
+        sentAt: 1551133970594,
+        isStarred: true
     }
 
 ];

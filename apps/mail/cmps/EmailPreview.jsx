@@ -1,6 +1,6 @@
 const { Link } = ReactRouterDOM
 import { LongTxt } from '../../../cmps/LongTxt.jsx'
-export function EmailPreview({ mail, removeMail, toggleStarMail }) {
+export function EmailPreview({ mail, removeMail, toggleStarMail, toggleReadMail }) {
     return (
 
         <div className={'mail-preview'}>
@@ -16,6 +16,8 @@ export function EmailPreview({ mail, removeMail, toggleStarMail }) {
             <div>
                 {!mail.isStarred && <button className="mail-icon far fa-star " onClick={() => toggleStarMail(mail.id)}></button>}
                 {mail.isStarred && <button className="mail-icon fas fa-star " onClick={() => toggleStarMail(mail.id)}></button>}
+                {!mail.isRead && <button className="mail-icon fas fa-envelope " onClick={() => toggleReadMail(mail.id)}></button>}
+                {mail.isRead && <button className="mail-icon far fa-envelope-open " onClick={() => toggleReadMail(mail.id)}></button>}
                 <button className="mail-icon fas fa-trash " onClick={() => removeMail(mail.id)}></button>
             </div>
         </div >
