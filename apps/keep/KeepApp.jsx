@@ -28,10 +28,8 @@ export class KeepApp extends React.Component {
     }
     togglePin = (noteId) => {
         keepService.togglePin(noteId)
-            .then(note => {
+            .then(() => {
                 this.loadNotes()
-                console.log(noteId);
-                console.log(note);
             })
     }
     componentDidUpdate(prevProps, prevState) {
@@ -48,8 +46,10 @@ export class KeepApp extends React.Component {
                 <h2>Keepush</h2>
                 <Route component={NoteEdit} path="/note/:id" />
                 <NoteAdd loadNotes={this.loadNotes} />
-                <NoteList className={"pinned-list"} notes={notes.filter(note => note.isPinned)} removeNote={this.removeNote} togglePin={this.togglePin} />
-                <NoteList className={"unpinned-list"} notes={notes.filter(note => !note.isPinned)} removeNote={this.removeNote} togglePin={this.togglePin} />
+                <NoteList className={"pinned-list"}
+                    notes={notes.filter(note => note.isPinned)} removeNote={this.removeNote} togglePin={this.togglePin} />
+                <NoteList className={"unpinned-list"} 
+                    notes={notes.filter(note => !note.isPinned)} removeNote={this.removeNote} togglePin={this.togglePin} />
             </section>
         )
     }

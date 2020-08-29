@@ -1,4 +1,5 @@
 import { ModalNote } from './ModalNote.jsx'
+import { ColorChange } from './ColorChange.jsx'
 import { keepService } from '../services/keep-service.js'
 import { ListTodos } from './ListTodos.jsx'
 
@@ -10,7 +11,7 @@ export class NoteEdit extends React.Component {
     componentDidMount() {
         this.loadNote()
     }
-    
+
     onInputChange = (ev) => {
         const key = this.getKeyByType(this.state.note.type);
         this.setState({
@@ -18,10 +19,15 @@ export class NoteEdit extends React.Component {
         })
 
     }
+    onTitleChange = (ev) => {
+        this.setState({
+            note: { ...this.state.note, info: { ...this.state.note.info, title: ev.target.value }, }
+        })
+
+    }
     saveNote = () => {
         keepService.save(this.state.note)
         this.props.history.push('/note');
-        // this.loadNote()
     }
     loadNote = () => {
         const noteId = this.props.match.params.id
@@ -39,27 +45,39 @@ export class NoteEdit extends React.Component {
                 return 'label'
         }
     }
+
+    onChangeColor = (color) => {
+        this.setState({
+            note:{...this.state.note,style:{...this.state.note.style,backgroundColor:color}}
+        })
+     
+        
+    }
+
+
+
     render() {
         const note = this.state.note;
         if (!note) return <div></div>
         var key = this.getKeyByType(note.type);
-        console.log(this.state);
         return (
 
             <ModalNote returnTo='/note'>
                 <div className="note-edit flex align-center">
+                <input ref={this.elInput} name="text" value={note.info.title}
+                        placeholder={this.state.placeholder} className="edit-input" type="text" onChange={this.onTitleChange} />
                     <input ref={this.elInput} name="text" value={note.info[key] || ''}
                         placeholder={this.state.placeholder} className="edit-input" type="text" onChange={this.onInputChange} />
+                  
                     <div className="btn-container">
-                        <button className="fas fa-plus" onClick={this.addNote}></button>
-                        <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
-                        <button className="input-txt-btn fas fa-pencil-alt" name="txt-note" onClick={this.changeNoteType}></button>
-                        <button className="list-btn far fa-check-square" name="list-note" onClick={this.changeNoteType}></button>
+                        {/* <button onClick={}><i className="fas fa-palette"></i></button> */}
+                        <ColorChange onChangeColor={this.onChangeColor} note={note}/>
+                        <button className="input-txt-btn fas fa-font" name="txt-note" onClick={this.changeNoteType}></button>
                         <button className={`pin-btn fas fa-thumbtack ${this.state.isPinned ? 'pin' : 'unpin'}`} name="pin-note" onClick={this.togglePin}></button>
                         {note.type === 'NoteTodos' && <ListTodos todos={note.info.todos} />}
                         <button className="save-btn" onClick={this.saveNote}>save</button>
-                        
-                        
+
+
                     </div>
                 </div>
             </ModalNote>

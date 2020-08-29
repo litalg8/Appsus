@@ -28,11 +28,11 @@
 
 /** note-modal **/ 
 .modal-note-content {
-    background: #a1afc0;
-    border-radius: 2rem; 
-    max-width: 90%;
-    min-width: 80%;
-    min-height: 400px;
+    background: #1f2833;
+    border-radius: 1rem; 
+    max-width: 70%;
+    min-width: 40%;
+    min-height: 300px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     position: relative;
 }

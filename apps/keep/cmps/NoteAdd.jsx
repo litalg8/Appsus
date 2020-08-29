@@ -1,4 +1,5 @@
 import { keepService } from '../services/keep-service.js'
+import { ColorChange } from './ColorChange.jsx'
 
 export class NoteAdd extends React.Component {
     state = {
@@ -29,6 +30,7 @@ export class NoteAdd extends React.Component {
         ev.preventDefault()
         // console.log('adding note')
         // console.log(keepService.query())
+        if(this.state.value === '')return 
         var note = keepService.createNote(this.state.type, this.state.value, this.state.isPinned)
         keepService.save(note)
         this.props.loadNotes()
@@ -44,7 +46,6 @@ export class NoteAdd extends React.Component {
 
     }
     changeNoteType = (ev) => {
-        console.log(ev.target.name)
         switch (ev.target.name) {
             case 'img-note':
                 this.setState({ placeholder: 'insert your img url', type: 'NoteImg' })
@@ -80,6 +81,7 @@ export class NoteAdd extends React.Component {
                 <input ref={this.elInput} name="text" value={note.info[[key]] || ''}
                     placeholder={this.state.placeholder}  className="edit-input" type="text" onChange={this.onInputChange} />
                 <div className="btn-container">
+                <ColorChange onChangeColor={this.onChangeColor} note={note}/>
                     <button className="fas fa-plus" onClick={this.addNote}></button>
                     <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
                     <button className="input-txt-btn fas fa-pencil-alt" name="txt-note" onClick={this.changeNoteType}></button>
@@ -93,6 +95,6 @@ export class NoteAdd extends React.Component {
 
 
 }
-{/* <input type="file" onChange={this.onInputChange}/> */ }
+
 // ../apps/keep/assets/img/alaska.gif
 // {note.isPinned ? 'unpin' : 'pin'}

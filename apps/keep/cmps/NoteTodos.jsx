@@ -10,7 +10,6 @@ export class NoteTodos extends React.Component {
         return (
             <section className="todo-card">
                 <div className="note-preview">
-                    <h3>{note.type}</h3>
                     <h3>{note.info.label}</h3>
                     <ul className="todo-list clean-list">
                         {       note.info.todos.map(todo =>

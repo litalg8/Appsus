@@ -28,6 +28,7 @@
 }
 
 .note-edit {
+    flex-direction: column;
     margin: 0 auto;
     width: 500px;
     padding: 10px;
@@ -61,6 +62,23 @@
     color: #191b1b; 
 }
 
+/** color inputs **/
+.btn-container{
+    display: flex;
+    align-items:center; 
+
+    
+}
+.color-pallette{
+    display: flex;
+
+}
+.input-color{
+    width:30px;
+    height:30px;  
+    border-radius: 50%;
+
+}
 .edit-input {
     font-family: Lato-Regular ;
     font-size: 1.5em;
@@ -77,4 +95,8 @@
     text-decoration: none;
     list-style-type: none;
     padding: 0;
+}
+.save-btn{
+    width:80px; 
+    background-color: #fff;
 }
