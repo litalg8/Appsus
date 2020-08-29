@@ -112,7 +112,13 @@
     cursor: pointer;
 }
 
+.align-text{
+   
+    text-align:left; 
+    margin-left:10px; 
+    margin-right:10px;
 
+}
 .clean-note-list {
     text-decoration: none;
     list-style-type: none;

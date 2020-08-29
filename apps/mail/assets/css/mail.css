@@ -82,7 +82,7 @@ input[type="text"], textarea, .compose-input {
 
 .filter-btn {
     color: #c5c6c7;
-    line-height: 1.7rem;
+    line-height: 2.1rem;
     border-color: #45a29e;
     border-style: solid;
     border-width: 0px 0px 2px 0px;
@@ -99,10 +99,17 @@ input[type="text"], textarea, .compose-input {
 }
 
 .compose-btn {
+    margin:25px 20px 10px 5px;
+    padding: 0px 20px 0px 20px; 
+    border-radius:0.4rem; 
     line-height: 2rem;
     background-color: #45a29e;
     color: white;
     margin-bottom: 5px;
+}
+.compose-btn:hover{
+    background-color: #66fcf1;
+    color: #1f2833; 
 }
 
 .mail-time {
@@ -141,4 +148,10 @@ input[type="text"], textarea, .compose-input {
     .mail-time {
         line-height: 1.2;
     }
+}
+
+.mail-list li:hover{
+    background-color: #1f2833;
+    opacity:0.8; 
+    /* border: 2px solid #66fcf1; */
 }

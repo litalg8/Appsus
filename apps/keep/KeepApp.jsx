@@ -43,7 +43,6 @@ export class KeepApp extends React.Component {
         const notes = this.state.notes
         return (
             <section>
-                <h2>Keepush</h2>
                 <Route component={NoteEdit} path="/note/:id" />
                 <NoteAdd loadNotes={this.loadNotes} />
                 <NoteList className={"pinned-list"}

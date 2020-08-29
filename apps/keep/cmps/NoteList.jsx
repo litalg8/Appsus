@@ -3,7 +3,7 @@ const { Link } = ReactRouterDOM;
 export function NoteList({ notes, removeNote, togglePin, className }) {
     return (
 
-        <ul className={"note-list clean-note-list grid " + className}>
+        <ul className={"note-list clean-note-list grid align-text" + className}>
             {
                 notes.map(note =>
                     //color: note.style.color

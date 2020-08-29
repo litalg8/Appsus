@@ -74,12 +74,12 @@ function changeStyle(noteId, color) {
 
 var notes = [
     {
-        id: 'note1',
+        id: makeId(),
         type: 'NoteText',
         isPinned: false,
         info: {
-            title: 'Text title',
-            txt: 'Fullstack Me Baby!'
+            title: 'Always remember:',
+            txt: 'If you can\'t love yourself..how in the hell can you love anyone else?'
         },
         style: {
             backgroundColor: '#1f2833',
@@ -87,13 +87,13 @@ var notes = [
         }
     },
     {
-        id: 'note2',
+        id: makeId(),
         type: 'NoteImg',
         isPinned: false,
         info: {
-            title: 'Img title',
+            title: 'Me reading React Console Errors...',
             url: './apps/keep/assets/img/really.gif',
-            subtitle: 'Me on React Console Errors...'
+            subtitle: '#BiancaGivingMeLife'
         },
         style: {
             backgroundColor: '#1f2833',
@@ -101,21 +101,62 @@ var notes = [
         }
     },
     {
-        id: 'note3',
+        id: makeId(),
         type: 'NoteTodos',
         isPinned: false,
         info: {
-            label: 'To Do Title:',
+            label: 'To Do List:',
             todos: [
-                { id: 'todo1', txt: 'Do that', doneAt: null },
-                { id: 'todo2', txt: 'Do this', doneAt: 187111111 }
+                { id: 'todo1', txt: 'Be ready', doneAt: null },
+                { id: 'todo2', txt: 'So you don\'t have to get ready', doneAt: 187111111 }
             ]
         },
         style: {
             backgroundColor: '#1f2833',
             color: '#ffffff'
         }
-    }
+    },
+    {
+        id: makeId(),
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            title: 'Me at the beginning of the sprint...',
+            url: './apps/keep/assets/img/alaska.gif',
+            subtitle: '#AlaskaRealness'
+        },
+        style: {
+            backgroundColor: '#1f2833',
+            color: '#ffffff'
+        }
+    },
+    {
+        id: makeId(),
+        type: 'NoteText',
+        isPinned: false,
+        info: {
+            title: 'very important:',
+            txt: 'Never let your inner saboteur win!'
+        },
+        style: {
+            backgroundColor: '#1f2833',
+            color: '#ffffff'
+        }
+    },
+    {
+        id: makeId(),
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            title: 'Me at the end of the sprint...',
+            url: './apps/keep/assets/img/ador.gif',
+            subtitle: '#AdoreMyLove'
+        },
+        style: {
+            backgroundColor: '#1f2833',
+            color: '#ffffff'
+        }
+    },
 
 ];
 
