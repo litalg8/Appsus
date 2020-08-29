@@ -103,7 +103,7 @@ var mails = [
         subject: 'Meeting with Roxxxy',
         body: 'Hiiiiiiiii \nwe want to eat together!',
         isRead: true,
-        sentAt: 1551133970594,
+        sentAt: Date.now(),
         isStarred: true
     }
 
