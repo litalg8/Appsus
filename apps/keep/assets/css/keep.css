@@ -30,8 +30,6 @@
 .note-edit {
     flex-direction: column;
     margin: 0 auto;
-    width: 500px;
-    padding: 10px;
 }
 
 /** icons **/
@@ -59,35 +57,59 @@
 }
 
 .unpin {
-    color: #191b1b; 
+    color: #191b1b;
 }
 
-/** color inputs **/
-.btn-container{
+/** color inputs ADD **/
+.btn-container-add {
     display: flex;
-    align-items:center; 
-
-    
+    align-items: center;
+    margin-top: 10px;
 }
-.color-pallette{
-    display: flex;
-
+.note-add .far {
+    color: #66fcf1;
+    font-size: 1.6rem;
 }
-.input-color{
-    width:30px;
-    height:30px;  
-    border-radius: 50%;
 
+.note-add .fas {
+    color: #66fcf1;
+    font-size: 1.6rem;
 }
+.note-add {
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: stretch;
+}
+/** color inputs EDIT **/
+
 .edit-input {
-    font-family: Lato-Regular ;
+    font-family: Lato-Regular;
     font-size: 1.5em;
-    color:#58cec8; 
-    width: 250px;
+    color: #032e2c;
+    width: 350px;
     background-color: #2c3a47;
     outline-color: #66fcf1;
     border: 1px solid #2c3a47;
-    padding:10px; 
+    /* padding:10px;  */
+}
+
+.btn-container {
+    display: flex;
+    align-content: space-between;
+    margin-top: 50px;
+}
+
+/** color inputs **/ 
+
+.color-pallette {
+    display: flex;
+}
+
+.input-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 
@@ -96,7 +118,16 @@
     list-style-type: none;
     padding: 0;
 }
-.save-btn{
-    width:80px; 
-    background-color: #fff;
+
+.save-btn {
+    /* height:40px;  */
+    width: 60px;
+    border: 2px solid #45a29e;
+    padding: 0.4rem;
+    margin: 0;
+    border-radius: 0.4rem;
+    font-family: Lato-regular;
+    line-height: 1rem;
+    font-size: 1.2rem;
+    align-self: center;
 }

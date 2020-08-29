@@ -28,11 +28,12 @@ function _getById(noteId) {
 }
 
 function getEmpty() {
-    return { type: 'NoteText', isPinned: false, info: {}, style: { backgroundColor: '#1f2833' } }
+    return { type: 'NoteText', isPinned: false, info: {}, style: { backgroundColor: '#1f2833', color: '#ffffff' } }
 }
 
-function createNote(type, value, isPinned) {
-    var note = { type, isPinned, info: {}, style: { backgroundColor: '#1f2833' } }
+function createNote(type, value, isPinned, backgroundColor) {
+    const color = (backgroundColor === '#ffd166' ? '#000000' : '#ffffff');
+    var note = { type, isPinned, info: {}, style: { backgroundColor ,color} }
     var key;
     switch (type) {
         case 'NoteText':
@@ -81,7 +82,8 @@ var notes = [
             txt: 'Fullstack Me Baby!'
         },
         style: {
-            backgroundColor: '#1f2833'
+            backgroundColor: '#1f2833',
+            color: '#ffffff'
         }
     },
     {
@@ -94,7 +96,8 @@ var notes = [
             subtitle: 'Me on React Console Errors...'
         },
         style: {
-            backgroundColor: '#1f2833'
+            backgroundColor: '#1f2833',
+            color: '#ffffff'
         }
     },
     {
@@ -109,7 +112,8 @@ var notes = [
             ]
         },
         style: {
-            backgroundColor: '#1f2833'
+            backgroundColor: '#1f2833',
+            color: '#ffffff'
         }
     }
 

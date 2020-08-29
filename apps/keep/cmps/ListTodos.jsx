@@ -4,18 +4,11 @@ export class ListTodos extends React.Component {
         todos: this.props.todos,
     }
 
-    getTodoById() {
-
-    }
-
     onInputChange = (ev) => {
         console.log(ev);
-        // const key = this.getKeyByType(this.state.note.type);
         this.setState({
             todos: [ {...this.state.todos, txt: ev.target.value} ]
         })
-        // this.props.todos[0] = ev.target.value;
-
     }
 
     render() {

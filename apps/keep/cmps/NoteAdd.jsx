@@ -8,6 +8,7 @@ export class NoteAdd extends React.Component {
         type: 'NoteText',
         value: '',
         isPinned: false,
+        backgroundColor: '#1f2833'
 
     }
 
@@ -17,27 +18,26 @@ export class NoteAdd extends React.Component {
     elInput = React.createRef()
 
     onInputChange = (ev) => {
-        // console.log('input', ev.target.name)
-        // console.log('input', ev.target.value)
-        // const value = ev.target.type === 'text';
+        const key = this.getKeyByType(this.state.note.type);
         this.setState({
-            note: { ...this.state.note, info: { ...this.state.note.info, txt: ev.target.value } },
+            note: { ...this.state.note, info: { ...this.state.note.info, [key]: ev.target.value } },
             value: ev.target.value
         })
-        // this.setState({ note: { ...this.state.note, info: { ...this.state.note.info, txt: value } } })
+
     }
+
     addNote = (ev) => {
         ev.preventDefault()
-        // console.log('adding note')
-        // console.log(keepService.query())
         if(this.state.value === '')return 
-        var note = keepService.createNote(this.state.type, this.state.value, this.state.isPinned)
+        var note = keepService.createNote(this.state.type, this.state.value, this.state.isPinned, this.state.backgroundColor)
         keepService.save(note)
+        this.setState({
+            placeholder: ''
+        })
         this.props.loadNotes()
     }
+    
     togglePin = (ev) => {
-        // console.log('pin',ev.target.classList);
-        // console.log(this.state.isPinned)
         ev.preventDefault()
         this.setState({
             isPinned: !this.state.isPinned
@@ -57,30 +57,30 @@ export class NoteAdd extends React.Component {
                 this.setState({ placeholder: 'insert your items with a comma', type: 'NoteTodos' })
                 break;
         }
-
     }
-
-
+    getKeyByType(type) {
+        switch (type) {
+            case 'NoteText':
+                return 'txt'
+            case 'NoteImg':
+                return 'url'
+            case 'NoteTodos':
+                return 'label'
+        }
+    }
+    onChangeColor = (backgroundColor) => {
+        console.log('im trying to change the color');
+        this.setState({backgroundColor})
+       
+    }
     render() {
         const note = this.state.note
-        var key;
-        switch (note.type) {
-            case 'NoteText':
-                key = 'txt'
-                break;
-            case 'NoteImg':
-                key = 'url'
-                break;
-            case 'NoteTodos':
-                key = 'label'
-                note.info.todos= []
-                break;
-        }
+        var key = this.getKeyByType(note.type);
         return (
-            <div className="note-edit flex align-center">
+            <div className="note-add flex align-center">
                 <input ref={this.elInput} name="text" value={note.info[[key]] || ''}
                     placeholder={this.state.placeholder}  className="edit-input" type="text" onChange={this.onInputChange} />
-                <div className="btn-container">
+                <div className="btn-container-add">
                 <ColorChange onChangeColor={this.onChangeColor} note={note}/>
                     <button className="fas fa-plus" onClick={this.addNote}></button>
                     <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
@@ -91,10 +91,6 @@ export class NoteAdd extends React.Component {
             </div>
         )
     }
-
-
-
 }
 
 // ../apps/keep/assets/img/alaska.gif
-// {note.isPinned ? 'unpin' : 'pin'}

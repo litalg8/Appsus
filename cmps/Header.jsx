@@ -8,9 +8,12 @@ export function Header(props) {
         <header className="main-header flex space-between">
 
             <NavLink  to="/" activeClassName="active-nav" exact className="logo nav-item">
-            <i className="fas fa-th-large fa-2x"></i></NavLink>
+                <img src="./assets/css/logo.png"/>
+            </NavLink>
             <Nav />
         </header>
     )
 
 }
+
+{/* <i className="fas fa-th-large fa-2x"></i> */}

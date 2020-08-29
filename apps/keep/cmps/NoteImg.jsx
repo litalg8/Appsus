@@ -1,6 +1,3 @@
-
-
-
 export class NoteImg extends React.Component {
     render() {
         const note = this.props.note;
