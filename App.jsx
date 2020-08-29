@@ -13,6 +13,7 @@ export class App extends React.Component {
                 <div>
                     <Header />
                     <main>
+                        
                         <Switch>
                             <Route component={MailApp} path="/mail" />
                             <Route component={KeepApp} path="/note" />

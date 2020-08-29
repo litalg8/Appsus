@@ -17,7 +17,7 @@ function query() {
 function getEmpty() {
     return {
         id: Math.random().toFixed(8),
-        from: 'alaska@gmail.com',
+        from: 'alaska',
         to: '',
         subject: '',
         body: '',
@@ -56,7 +56,7 @@ function markAsReadMail(mail) {
 
 function add(mailToAdd) {
     mails = [mailToAdd, ...mails];
-    console.log(mails);
+    // console.log(mails);
 }
 
 function getById(mailId) {

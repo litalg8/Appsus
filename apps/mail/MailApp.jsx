@@ -75,7 +75,7 @@ export class MailApp extends React.Component {
         return (
             <section className="mail-app">
                 <h2>You've Got SheMail</h2>
-                <button className="compose-btn"><Link to={`/mail/add`}>Compose</Link></button>
+                <Link to={`/mail/add`}><button className="compose-btn">Compose</button></Link>
                 <div className="mail-content-container">
                     <div className="side-nav flex">
                         <button className="filter-btn" onClick={this.filterBy} name="inbox">Inbox {unreadCountToShow}</button>

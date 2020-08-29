@@ -21,7 +21,7 @@ export class EmailCompose extends React.Component {
         this.setState({ mail: { ...this.state.mail, [ev.target.name]: value } }, this.printState);
     }
     printState() {
-        console.log(this.state.mail);
+        // console.log(this.state.mail);
     }
 
     render() {

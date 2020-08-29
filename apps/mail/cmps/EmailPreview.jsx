@@ -13,8 +13,8 @@ export function EmailPreview({ mail, removeMail, toggleStarMail, toggleReadMail 
                     <LongTxt className="mail-body-preview" txt={mail.body} />
                 </div>
             </Link>
-            <div className="mail-time" style={{color: 'white', fontSize: '0.75rem'}}>
-                {new Date(mail.sentAt).toLocaleDateString('he-IL')}, {new Date(mail.sentAt).toLocaleTimeString('he-IL')}
+            <div className="mail-time">
+                {new Date(mail.sentAt).toLocaleDateString('he-IL')}, {new Date(mail.sentAt).toLocaleTimeString('he-IL').slice(0,-3)}
             </div>
             <div>
                 {!mail.isStarred && <button className="mail-icon far fa-star " onClick={() => toggleStarMail(mail.id)}></button>}

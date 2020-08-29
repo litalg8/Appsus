@@ -101,6 +101,7 @@ input[type="text"], textarea, .compose-input {
 .compose-btn {
     line-height: 2rem;
     background-color: #45a29e;
+    color: white;
     margin-bottom: 5px;
 }
 
