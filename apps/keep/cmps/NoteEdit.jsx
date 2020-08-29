@@ -43,6 +43,8 @@ export class NoteEdit extends React.Component {
                 return 'url'
             case 'NoteTodos':
                 return 'label'
+            case 'NoteVideo':
+                return 'url'
         }
     }
 

@@ -53,6 +53,9 @@ export class NoteAdd extends React.Component {
             case 'txt-note':
                 this.setState({ placeholder: 'insert your Text', type: 'NoteText' })
                 break;
+            case 'video-note':
+                this.setState({ placeholder: 'insert your Video', type: 'NoteVideo' })
+                break;
             case 'list-note':
                 this.setState({ placeholder: 'insert your items with a comma', type: 'NoteTodos' })
                 break;
@@ -66,6 +69,8 @@ export class NoteAdd extends React.Component {
                 return 'url'
             case 'NoteTodos':
                 return 'label'
+            case 'NoteVideo':
+                return 'url'
         }
     }
     onChangeColor = (backgroundColor) => {
@@ -79,7 +84,7 @@ export class NoteAdd extends React.Component {
         return (
             <div className="note-add flex align-center">
                 <input ref={this.elInput} name="text" value={note.info[[key]] || ''}
-                    placeholder={this.state.placeholder}  className="edit-input" type="text" onChange={this.onInputChange} />
+                    placeholder={this.state.placeholder}  className="add-input" type="text" onChange={this.onInputChange} />
                 <div className="btn-container-add">
                 <ColorChange onChangeColor={this.onChangeColor} note={note}/>
                     <button className="fas fa-plus" onClick={this.addNote}></button>

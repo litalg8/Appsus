@@ -46,6 +46,9 @@ function createNote(type, value, isPinned, backgroundColor) {
             key = 'label'
             note.info.todos = []
             break;
+        case 'NoteVideo':
+            key = 'url'
+            break;
     }
     note.info[[key]] = value;
     console.log(note);
@@ -151,6 +154,20 @@ var notes = [
             title: 'Me at the end of the sprint...',
             url: './apps/keep/assets/img/ador.gif',
             subtitle: '#AdoreMyLove'
+        },
+        style: {
+            backgroundColor: '#1f2833',
+            color: '#ffffff'
+        }
+    },
+    {
+        id: makeId(),
+        type: 'NoteVideo',
+        isPinned: false,
+        info: {
+            title: 'Bianca giving me life',
+            url: 'https://www.youtube.com/embed/qgpuyGdesd',
+            subtitle: '#NotTodaySatan'
         },
         style: {
             backgroundColor: '#1f2833',

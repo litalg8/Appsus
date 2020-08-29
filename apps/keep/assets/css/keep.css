@@ -90,7 +90,19 @@
     background-color: #2c3a47;
     outline-color: #66fcf1;
     border: 1px solid #2c3a47;
+    margin-bottom:40px;
     /* padding:10px;  */
+}
+.add-input{
+    font-family: Lato-Regular;
+    font-size: 1.5em;
+    color: #032e2c;
+    width: 350px;
+    background-color: #2c3a47;
+    outline-color: #66fcf1;
+    border: 1px solid #2c3a47;
+    
+
 }
 
 .btn-container {
@@ -136,4 +148,14 @@
     line-height: 1rem;
     font-size: 1.2rem;
     align-self: center;
+}
+.pin-btn{
+    font-size: 1.4rem; 
+    padding-top:5px; 
+}
+.btn-close{
+    font-size:1.4rem; 
+    font-family:Lato-regular;
+    padding-top:5px; 
+    color:#868686; 
 }
