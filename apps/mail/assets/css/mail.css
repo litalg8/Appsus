@@ -71,12 +71,27 @@ input[type="text"], textarea, .compose-input {
 }
 
 .side-nav {
-    background-color: blue;
-    width: 140px;
-    height: 140px;
+    flex-direction: column;
+    align-content: space-between;
+   
+    width: 100px;
+    height: 100px;
+}
+.filter-btn{
+  color: #c5c6c7; 
+  line-height: 1.7rem;
+  border: 2px solid #45a29e; 
+}
+
+.side-nav .filter-btn:hover{
+    border: 2px solid #66fcf1; 
 }
 
 .mail-content-container {
     display: grid;
     grid-template-columns: auto 1fr;
+}
+.compose-btn{
+    line-height: 2rem;
+    background-color:  #45a29e;
 }

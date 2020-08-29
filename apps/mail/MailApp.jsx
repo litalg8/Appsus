@@ -58,16 +58,16 @@ export class MailApp extends React.Component {
     render() {
         return (
             <section className="mail-app">
-                <h2>You've Got Mail</h2>
                 <h2>You've Got SheMail</h2>
+                <button className="compose-btn"><Link to={`/mail/add`}>Compose</Link></button>
                 <div className="mail-content-container">
-                    <div className="side-nav">
-                        <button onClick={this.filterBy} name="inbox">Inbox</button>
-                        <button onClick={this.filterBy} name="star">Starred messages</button>
+                    <div className="side-nav flex">
+                        <button className="filter-btn" onClick={this.filterBy} name="inbox">Inbox</button>
+                        <button className="filter-btn" onClick={this.filterBy} name="star">Starred</button>
                     </div>
                     <div>
                         <EmailList mails={this.state.mails} removeMail={this.removeMail} toggleStarMail={this.toggleStarMail}/>
-                        <button><Link to={`/mail/add`}>Compose</Link></button>
+                   
                         <Switch>
                             <Route component={EmailCompose} path="/mail/add" />
                             <Route component={EmailDetails} path="/mail/:id" />
