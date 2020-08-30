@@ -72,7 +72,14 @@ input[type="text"], textarea, .compose-input {
 .mail-details {
     margin: 5px;
 }
-
+.from-modal{
+    font-family: Lato-Regular;
+    font-size:1.3rem; 
+    font-weight:lighter; 
+}
+.body-modal{
+    text-indent: 5%;
+}
 .side-nav {
     flex-direction: column;
     align-content: space-between;

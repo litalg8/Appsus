@@ -31,8 +31,9 @@ export class EmailDetails extends React.Component {
         return (
             <Modal returnTo='/mail'>
                 <div className='mail-details'>
-                    <h3>{mail.subject}</h3>
-                    <p>{mail.body}</p>
+                    <h3><span className="from-modal">From:</span> {mail.from}</h3>
+                    <h3><span className="from-modal">Subject:</span> {mail.subject}</h3>
+                    <div className="body-modal">{mail.body}</div>
                 </div>
             </Modal>
         )
