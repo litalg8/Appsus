@@ -51,8 +51,8 @@ export class NoteEdit extends React.Component {
     togglePin = (ev) => {
         ev.preventDefault()
         this.setState({
-            isPinned: !this.state.isPinned
-
+            isPinned: !this.state.isPinned,
+            note: { ...this.state.note, isPinned: !this.state.isPinned }
         })
         // this.loadNote()
     }
@@ -73,7 +73,7 @@ export class NoteEdit extends React.Component {
                         placeholder={this.state.placeholder} className="edit-input" type="text" onChange={this.onTitleChange} />
                     <input ref={this.elInput} name="text" value={note.info[key] || ''}
                         placeholder={this.state.placeholder} className="edit-input" type="text" onChange={this.onInputChange} />
-                    {note.type === 'NoteTodos' && <ListTodos todos={note.info.todos} />}
+                    {/* {note.type === 'NoteTodos' && <ListTodos todos={note.info.todos} />} */}
                     <div className="btn-container">
                         <ColorChange onChangeColor={this.onChangeColor} note={note} />
                         <button className="input-txt-btn fas fa-font" name="txt-note" onClick={this.changeNoteType}></button>
