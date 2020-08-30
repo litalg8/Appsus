@@ -28,12 +28,12 @@ function _getById(noteId) {
 }
 
 function getEmpty() {
-    return { type: 'NoteText', isPinned: false, info: {}, style: { backgroundColor: '#1f2833', color: '#ffffff' } }
+    return { type: 'NoteText', isPinned: false, info: {title: 'Add Your Title'}, style: { backgroundColor: '#1f2833', color: '#ffffff' } }
 }
 
 function createNote(type, value, isPinned, backgroundColor) {
     const color = (backgroundColor === '#ffd166' ? '#000000' : '#ffffff');
-    var note = { type, isPinned, info: {}, style: { backgroundColor ,color} }
+    var note = { type, isPinned, info: {title: 'Add Your Title'}, style: { backgroundColor ,color} }
     var key;
     switch (type) {
         case 'NoteText':

@@ -32,7 +32,9 @@ export class NoteAdd extends React.Component {
         var note = keepService.createNote(this.state.type, this.state.value, this.state.isPinned, this.state.backgroundColor)
         keepService.save(note)
         this.setState({
-            placeholder: ''
+            placeholder: 'add your note here',
+            value: '',
+            note: keepService.getEmpty()
         })
         this.props.loadNotes()
     }
