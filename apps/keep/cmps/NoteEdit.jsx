@@ -76,7 +76,7 @@ export class NoteEdit extends React.Component {
                     {/* {note.type === 'NoteTodos' && <ListTodos todos={note.info.todos} />} */}
                     <div className="btn-container">
                         <ColorChange onChangeColor={this.onChangeColor} note={note} />
-                        <button className="input-txt-btn fas fa-font" name="txt-note" onClick={this.changeNoteType}></button>
+                        {/* <button className="input-txt-btn fas fa-font" name="txt-note" onClick={this.changeNoteType}></button> */}
                         <button className={`pin-btn fas fa-thumbtack ${this.state.isPinned ? 'pin' : 'unpin'}`} name="pin-note" onClick={this.togglePin}></button>
                         <button className="save-btn" onClick={this.saveNote}>save</button>
                     </div>

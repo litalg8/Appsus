@@ -88,7 +88,7 @@ export class NoteAdd extends React.Component {
                     <ColorChange onChangeColor={this.onChangeColor} note={note} />
                     <button className="fas fa-plus" onClick={this.addNote}></button>
                     <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
-                    <button className="input-txt-btn fas fa-pencil-alt" name="txt-note" onClick={this.changeNoteType}></button>
+                    <button className="input-txt-btn fas fas fa-font" name="txt-note" onClick={this.changeNoteType}></button>
                     <button className="list-btn fas fa-play-circle" name="video-note" onClick={this.changeNoteType}></button>
                     <button className={`pin-btn fas fa-thumbtack ${this.state.isPinned ? 'pin' : 'unpin'}`} name="pin-note" onClick={this.togglePin}></button>
                 </div>
