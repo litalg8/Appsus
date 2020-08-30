@@ -53,7 +53,7 @@ export class NoteEdit extends React.Component {
         this.setState({
             isPinned: !this.state.isPinned
 
-        }, () => console.log(this.state.isPinned))
+        })
         // this.loadNote()
     }
     onChangeColor = (color) => {

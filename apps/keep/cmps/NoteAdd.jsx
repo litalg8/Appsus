@@ -28,7 +28,7 @@ export class NoteAdd extends React.Component {
 
     addNote = (ev) => {
         ev.preventDefault()
-        if(this.state.value === '')return 
+        if (this.state.value === '') return
         var note = keepService.createNote(this.state.type, this.state.value, this.state.isPinned, this.state.backgroundColor)
         keepService.save(note)
         this.setState({
@@ -36,13 +36,13 @@ export class NoteAdd extends React.Component {
         })
         this.props.loadNotes()
     }
-    
+
     togglePin = (ev) => {
         ev.preventDefault()
         this.setState({
             isPinned: !this.state.isPinned
 
-        }, () => console.log(this.state.isPinned))
+        })
 
     }
     changeNoteType = (ev) => {
@@ -74,9 +74,8 @@ export class NoteAdd extends React.Component {
         }
     }
     onChangeColor = (backgroundColor) => {
-        console.log('im trying to change the color');
-        this.setState({backgroundColor})
-       
+        this.setState({ backgroundColor })
+
     }
     render() {
         const note = this.state.note
@@ -84,9 +83,9 @@ export class NoteAdd extends React.Component {
         return (
             <div className="note-add flex align-center">
                 <input ref={this.elInput} name="text" value={note.info[[key]] || ''}
-                    placeholder={this.state.placeholder}  className="add-input" type="text" onChange={this.onInputChange} />
+                    placeholder={this.state.placeholder} className="add-input" type="text" onChange={this.onInputChange} />
                 <div className="btn-container-add">
-                <ColorChange onChangeColor={this.onChangeColor} note={note}/>
+                    <ColorChange onChangeColor={this.onChangeColor} note={note} />
                     <button className="fas fa-plus" onClick={this.addNote}></button>
                     <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
                     <button className="input-txt-btn fas fa-pencil-alt" name="txt-note" onClick={this.changeNoteType}></button>

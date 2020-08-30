@@ -52,13 +52,7 @@
     color: #23504d;
 }
 
-.pin {
-    color: #66fcf1
-}
 
-.unpin {
-    color: #191b1b;
-}
 
 /** color inputs ADD **/
 .btn-container-add {
@@ -79,6 +73,14 @@
     flex-direction: column;
     margin: 0 auto;
     align-items: stretch;
+}
+
+.note-add .pin {
+    color: #66fcf1
+}
+
+.note-add .unpin {
+    color: #191b1b;
 }
 /** color inputs EDIT **/
 

@@ -51,7 +51,6 @@ function createNote(type, value, isPinned, backgroundColor) {
             break;
     }
     note.info[[key]] = value;
-    console.log(note);
     return note;
 }
 
@@ -68,9 +67,6 @@ function _update(noteToSave) {
 }
 function changeStyle(noteId, color) {
     var note = _getById(noteId)
-    console.log(noteId);
-    console.log(color);
-    console.log(note);
     note.style = {...note.style, backgroundColor: color}
     return Promise.resolve()
 }

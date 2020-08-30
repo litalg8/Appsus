@@ -7,7 +7,7 @@ export class LongTxt extends React.Component {
         numCharToShow: 20
     }
     onClick = () => {
-        this.setState({ isLongTxtShown: !this.state.isLongTxtShown })
+        // this.setState({ isLongTxtShown: !this.state.isLongTxtShown })
     }
     render() {
         const { txt } = this.props;
