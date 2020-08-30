@@ -101,14 +101,12 @@ var notes = [
     },
     {
         id: makeId(),
-        type: 'NoteTodos',
+        type: 'NoteVideo',
         isPinned: false,
         info: {
-            label: 'To Do List:',
-            todos: [
-                { id: 'todo1', txt: 'Be ready', doneAt: null },
-                { id: 'todo2', txt: 'So you don\'t have to get ready', doneAt: 187111111 }
-            ]
+            title: 'Adore Delano',
+            url: 'https://www.youtube.com/embed/lNPUvl0ad5k',
+            subtitle: 'Partyyyyyy'
         },
         style: {
             backgroundColor: '#1f2833',
@@ -162,7 +160,7 @@ var notes = [
         isPinned: false,
         info: {
             title: 'Bianca giving me life',
-            url: 'https://www.youtube.com/embed/qgpuyGdesd',
+            url: 'https://www.youtube.com/embed/n3J9Jo0TyO4',
             subtitle: '#NotTodaySatan'
         },
         style: {
