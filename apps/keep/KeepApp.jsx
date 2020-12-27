@@ -1,6 +1,6 @@
-// import { NoteList } from './cmps/NoteList.jsx'
+
 const { Route } = ReactRouterDOM;
-import { keepService } from './services/keep-service.js'
+import { noteService } from './services/note-service.js'
 import { NoteList } from './cmps/NoteList.jsx';
 import { NoteAdd } from './cmps/NoteAdd.jsx';
 import { NoteEdit } from './cmps/NoteEdit.jsx';
@@ -9,13 +9,12 @@ export class KeepApp extends React.Component {
         notes: []
 
     }
-
     componentDidMount() {
         this.loadNotes();
     }
 
     loadNotes = () => {
-        keepService.query()
+        noteService.query()
             .then(notes => {
                 // console.log(notes)
                 this.setState({ notes })
@@ -23,11 +22,11 @@ export class KeepApp extends React.Component {
             .catch(err => console.log(err))
     }
     removeNote = (noteId) => {
-        keepService.remove(noteId)
+        noteService.remove(noteId)
         this.loadNotes()
     }
     togglePin = (noteId) => {
-        keepService.togglePin(noteId)
+        noteService.togglePin(noteId)
             .then(() => {
                 this.loadNotes()
             })

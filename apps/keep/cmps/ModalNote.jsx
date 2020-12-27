@@ -1,6 +1,5 @@
 const { withRouter } = ReactRouterDOM
 
-
 class _ModalNote extends React.Component {
     state = {
         isShown: true,

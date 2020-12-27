@@ -1,12 +1,7 @@
 
 
 
-export class NoteTodos extends React.Component {
-
-    
-    render() {
-        const note = this.props.note;
-        // console.log(note)
+export function NoteTodos({note}) {
         return (
             <section className="todo-card align-text">
                 <div className="note-preview">
@@ -22,5 +17,5 @@ export class NoteTodos extends React.Component {
                 </div>
             </section>
         )
-    }
+    
 }

@@ -1,15 +1,14 @@
-import { keepService } from '../services/keep-service.js'
-import { ColorChange } from './ColorChange.jsx'
+import { noteService } from '../services/note-service.js'
+import { NoteColor } from './NoteColor.jsx'
 
 export class NoteAdd extends React.Component {
     state = {
-        note: keepService.getEmpty(),
+        note: noteService.getEmpty(),
         placeholder: 'add your note here',
         type: 'NoteText',
         value: '',
         isPinned: false,
         backgroundColor: '#1f2833'
-
     }
 
     componentDidMount() {
@@ -29,12 +28,12 @@ export class NoteAdd extends React.Component {
     addNote = (ev) => {
         ev.preventDefault()
         if (this.state.value === '') return
-        var note = keepService.createNote(this.state.type, this.state.value, this.state.isPinned, this.state.backgroundColor)
-        keepService.save(note)
+        var note = noteService.createNote(this.state.type, this.state.value, this.state.isPinned, this.state.backgroundColor)
+        noteService.save(note)
         this.setState({
             placeholder: 'add your note here',
             value: '',
-            note: keepService.getEmpty()
+            note: noteService.getEmpty()
         })
         this.props.loadNotes()
     }
@@ -63,6 +62,7 @@ export class NoteAdd extends React.Component {
                 break;
         }
     }
+    
     getKeyByType(type) {
         switch (type) {
             case 'NoteText':
@@ -83,11 +83,11 @@ export class NoteAdd extends React.Component {
         const note = this.state.note
         var key = this.getKeyByType(note.type);
         return (
-            <div className="note-add flex align-center">
+            <div className="note-add flex align-center pin">
                 <input ref={this.elInput} name="text" value={note.info[[key]] || ''}
                     placeholder={this.state.placeholder} className="add-input" type="text" onChange={this.onInputChange} />
                 <div className="btn-container-add">
-                    <ColorChange onChangeColor={this.onChangeColor} note={note} />
+                    <NoteColor onChangeColor={this.onChangeColor} note={note} />
                     <button className="fas fa-plus" onClick={this.addNote}></button>
                     <button className="input-btn far fa-image" name="img-note" onClick={this.changeNoteType}></button>
                     <button className="input-txt-btn fas fas fa-font" name="txt-note" onClick={this.changeNoteType}></button>
@@ -99,4 +99,3 @@ export class NoteAdd extends React.Component {
     }
 }
 
-// ../apps/keep/assets/img/alaska.gif
